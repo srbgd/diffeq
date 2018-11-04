@@ -79,7 +79,7 @@ def change_step(compute_with_new_step, start_step, inds):
 	return total_euler, total_improved_euler, total_runge_kutta, inds
 
 
-def main(x0 = 0, y0 = 0, yp = lambda x, y : 4 * x - 2 * y, f = lambda x, c: c * math.exp(-2 * x) + 2 * x - 1, c = lambda x0, y0: (y0 + 1 - 2 * x0) * math.exp(2 * x0), X = 1, h = 0.15, bars = 5):
+def main(x0 = 0, y0 = 0, yp = lambda x, y : 4 * x - 2 * y, f = lambda x, c: c * math.exp(-2 * x) + 2 * x - 1, c = lambda x0, y0: (y0 + 1 - 2 * x0) * math.exp(2 * x0), X = 3, h = 0.15, bars = 11):
 	xs, ys_euler, err_euler, ys_improved_euler, err_improved_euler, ys_runge_kutta, err_runge_kutta = compute(x0, y0, yp, f, c, X, h)
 	ys_exact = list(map(lambda x : f(x, c(x0, y0)), xs))
 	draw_plots(xs, ys_exact, ys_euler, ys_improved_euler, ys_runge_kutta)
